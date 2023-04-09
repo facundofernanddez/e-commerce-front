@@ -14,7 +14,7 @@ export const Navigator = () => {
               <Link to="/login">Login</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/register">Register</Link>
+              <Link to="/registration">Registration</Link>
             </Nav.Link>
           </Nav>
         </Container>

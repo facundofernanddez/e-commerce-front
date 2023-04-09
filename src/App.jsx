@@ -2,7 +2,7 @@ import { Index } from "./pages/Index";
 import { Navigator } from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import { Login } from "./pages/Login";
-import { Register } from "./pages/Register";
+import { Registration } from "./pages/Registration";
 
 export const App = () => {
   return (
@@ -11,7 +11,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/registration" element={<Registration />} />
       </Routes>
     </main>
   );
