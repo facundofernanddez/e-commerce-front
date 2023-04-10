@@ -7,15 +7,15 @@ export const Navigator = () => {
       <Navbar bg="dark" variant="dark">
         <Container>
           <Nav className="me-auto">
-            <Nav.Link>
-              <Link to="/">Home</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/login">Login</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/registration">Registration</Link>
-            </Nav.Link>
+            <Link className="m-2" to="/">
+              Home
+            </Link>
+            <Link className="m-2" to="/login">
+              Login
+            </Link>
+            <Link className="m-2" to="/registration">
+              Registration
+            </Link>
           </Nav>
         </Container>
       </Navbar>

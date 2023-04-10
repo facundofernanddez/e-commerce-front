@@ -1,27 +1,30 @@
-import { Form, Button } from "react-bootstrap";
-
 export const Login = () => {
+  const handleSubmit = () => {
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+    };
+  };
+
   return (
     <>
-      <Form className="m-4">
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="Enter email"></Form.Control>
-        </Form.Group>
+      <form className="m-4" onSubmit={handleSubmit}>
+        <label>Email</label>
+        <input type="email" placeholder="Enter email" name="email" />
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password"></Form.Control>
-        </Form.Group>
+        <label>Password</label>
+        <input type="password" placeholder="Password" name="password" />
 
-        <Button className="mt-2" variant="success" type="submit">
+        <button className="mt-2" variant="success" type="submit">
           Login
-        </Button>
+        </button>
 
-        <Button className="mt-2 mx-2" variant="primary">
+        <button className="mt-2 mx-2" variant="primary">
           Register
-        </Button>
-      </Form>
+        </button>
+      </form>
     </>
   );
 };
