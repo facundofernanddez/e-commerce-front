@@ -1,21 +1,31 @@
-export const Login = () => {
-  const handleSubmit = () => {
-    const handleSubmit = (e) => {
-      e.preventDefault();
+import axios from "axios";
+import { useEffect, useRef } from "react";
 
-      const email = e.target.email.value;
-      const password = e.target.password.value;
-    };
+export const Login = () => {
+  const email = useRef(null);
+  const password = useRef(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const emailToLogin = email.current.value;
+    const passwordToLogin = password.current.value;
+
+    axios
+      .post("http://localhost:8080/login", { emailToLogin, passwordToLogin })
+      .then((res) => {
+        console.log(res);
+      });
   };
 
   return (
     <>
       <form className="m-4" onSubmit={handleSubmit}>
         <label>Email</label>
-        <input type="email" placeholder="Enter email" name="email" />
+        <input type="email" placeholder="Enter email" ref={email} />
 
         <label>Password</label>
-        <input type="password" placeholder="Password" name="password" />
+        <input type="password" placeholder="Password" ref={password} />
 
         <button className="mt-2" variant="success" type="submit">
           Login
