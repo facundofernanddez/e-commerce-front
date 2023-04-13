@@ -12,9 +12,12 @@ export const Login = () => {
     const passwordToLogin = password.current.value;
 
     axios
-      .post("http://localhost:8080/login", { emailToLogin, passwordToLogin })
+      .post("http://localhost:8080/login", {
+        email: emailToLogin,
+        password: passwordToLogin,
+      })
       .then((res) => {
-        console.log(res);
+        console.log(res.data.user);
       });
   };
 
