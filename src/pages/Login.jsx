@@ -1,23 +1,34 @@
 import axios from "axios";
-import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setUser } from "../reducers/user/UserSlice";
 
 export const Login = () => {
-  const email = useRef(null);
-  const password = useRef(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const emailToLogin = email.current.value;
-    const passwordToLogin = password.current.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
     axios
       .post("http://localhost:8080/login", {
-        email: emailToLogin,
-        password: passwordToLogin,
+        email,
+        password,
       })
       .then((res) => {
-        console.log(res.data.user);
+        dispatch(
+          setUser({
+            logged: true,
+            firstName: res.data.user.firstName,
+            lastName: res.data.user.lastName,
+            email: res.data.user.email,
+          })
+        );
+
+        navigate("/home");
       });
   };
 
@@ -25,10 +36,10 @@ export const Login = () => {
     <>
       <form className="m-4" onSubmit={handleSubmit}>
         <label>Email</label>
-        <input type="email" placeholder="Enter email" ref={email} />
+        <input type="email" placeholder="Enter email" name="email" />
 
         <label>Password</label>
-        <input type="password" placeholder="Password" ref={password} />
+        <input type="password" placeholder="Password" name="password" />
 
         <button className="mt-2" variant="success" type="submit">
           Login
