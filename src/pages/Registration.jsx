@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const Registration = ({ logged }) => {
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -22,6 +24,7 @@ export const Registration = ({ logged }) => {
       })
       .then((res) => {
         console.log(res);
+        if (res.status === 200) navigate("/home");
       })
       .catch((e) => console.log(e));
   };

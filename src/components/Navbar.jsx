@@ -1,24 +1,27 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const Navigator = () => {
+export const Navigator = ({ logged }) => {
   return (
     <>
-      <Navbar bg="dark" variant="dark">
-        <Container>
-          <Nav className="me-auto">
-            <Link className="m-2" to="/">
-              Home
+      <nav className="navbar navbar-expand-lg bg-dark">
+        <div className="container-fluid">
+          <Link className="m-2 text-white" to="/">
+            Home
+          </Link>
+          <Link className="m-2 text-white" to="/login">
+            Login
+          </Link>
+          <Link className="m-2 text-white" to="/registration">
+            Registration
+          </Link>
+          {logged && (
+            <Link className="m-2 text-white" to="/logout">
+              Logout
             </Link>
-            <Link className="m-2" to="/login">
-              Login
-            </Link>
-            <Link className="m-2" to="/registration">
-              Registration
-            </Link>
-          </Nav>
-        </Container>
-      </Navbar>
+          )}
+        </div>
+      </nav>
     </>
   );
 };

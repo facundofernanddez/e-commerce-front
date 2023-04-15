@@ -12,7 +12,7 @@ export const App = () => {
 
   return (
     <main className="container">
-      <Navigator />
+      <Navigator logged={logged} />
       <Routes>
         <Route path="/" element={<Index logged={logged} />} />
         <Route path="/login" element={<Login logged={logged} />} />
@@ -20,7 +20,7 @@ export const App = () => {
           path="/registration"
           element={<Registration logged={logged} />}
         />
-        <Route path="/home" element={<Home logged={logged} />} />
+        <Route path="/home" element={<Home logged={logged} user={user} />} />
       </Routes>
     </main>
   );
