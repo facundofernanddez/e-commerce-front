@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
-export const Registration = () => {
+export const Registration = ({ logged }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -27,6 +28,7 @@ export const Registration = () => {
 
   return (
     <>
+      {logged && <Navigate to="/home" />}
       <form className="m-4" onSubmit={handleSubmit}>
         <label>First Name</label>
         <input type="text" name="firstName" />

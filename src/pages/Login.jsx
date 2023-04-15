@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { setUser } from "../reducers/user/UserSlice";
 
-export const Login = () => {
+export const Login = ({ logged }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -34,6 +34,7 @@ export const Login = () => {
 
   return (
     <>
+      {logged && <Navigate to="/home" />}
       <form className="m-4" onSubmit={handleSubmit}>
         <label>Email</label>
         <input type="email" placeholder="Enter email" name="email" />
