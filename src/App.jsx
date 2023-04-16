@@ -12,7 +12,7 @@ export const App = () => {
 
   return (
     <main className="container">
-      <Navigator logged={logged} />
+      <Navigator logged={logged} user={user} />
       <Routes>
         <Route path="/" element={<Index logged={logged} />} />
         <Route path="/login" element={<Login logged={logged} />} />
