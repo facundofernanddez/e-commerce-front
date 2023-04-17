@@ -1,7 +1,13 @@
+import { useDispatch, useSelector } from "react-redux";
 import { burgersList } from "../images/info-burgers/burgersList";
 
 export const BurgerCard = (cart) => {
-  const addOrRemoveToCart = () => {};
+  const dispatch = useDispatch();
+  const productsList = cart.productsList;
+
+  const handleAddOrRemoveToCart = (productId) => {
+    const product = productsList.find((i) => i.id === productId);
+  };
 
   return (
     <>
@@ -16,7 +22,7 @@ export const BurgerCard = (cart) => {
                 <button
                   href="#"
                   className="btn btn-primary"
-                  onClick={addOrRemoveToCart}
+                  onClick={handleAddOrRemoveToCart}
                 >
                   Agregar a carrito
                 </button>
