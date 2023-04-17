@@ -7,7 +7,7 @@ import purple from "../../images/purple.jpg";
 export const burgersList = [
   {
     id: 1,
-    name: "Americana",
+    name: "American",
     img: americana,
     description: "",
     price: 12,
@@ -28,7 +28,7 @@ export const burgersList = [
   },
   {
     id: 4,
-    name: "Inglesa",
+    name: "British",
     img: inglesa,
     description: "",
     price: 10,

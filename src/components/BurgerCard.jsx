@@ -14,18 +14,20 @@ export const BurgerCard = (cart) => {
       <div className="row">
         {burgersList.map((burger) => {
           return (
-            <div className="card" style={{ width: "18rem" }} key={burger.id}>
-              <img src={burger.img} className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">{burger.name}</h5>
-                <p className="card-text">{burger.description}</p>
-                <button
-                  href="#"
-                  className="btn btn-primary"
-                  onClick={handleAddOrRemoveToCart}
-                >
-                  Agregar a carrito
-                </button>
+            <div className="col-sm-12 col-md-6 col-lg-4">
+              <div className="card" key={burger.id}>
+                <img src={burger.img} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="card-title">{burger.name}</h5>
+                  <p className="card-text">{burger.description}</p>
+                  <button
+                    href="#"
+                    className="btn btn-primary"
+                    onClick={handleAddOrRemoveToCart}
+                  >
+                    Add to cart
+                  </button>
+                </div>
               </div>
             </div>
           );

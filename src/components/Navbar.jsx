@@ -40,7 +40,7 @@ export const Navigator = ({ logged, user, cart }) => {
                 className="m-2 btn btn-secondary text-white position-relative"
                 to="/logout"
               >
-                Carrito
+                Cart
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   {cart.totalCount}
                 </span>
