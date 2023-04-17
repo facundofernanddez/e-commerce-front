@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { unsetUser } from "../reducers/user/UserSlice";
 import { Link } from "react-router-dom";
 
-export const Navigator = ({ logged, user }) => {
+export const Navigator = ({ logged, user, cart }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -41,7 +41,9 @@ export const Navigator = ({ logged, user }) => {
                 to="/logout"
               >
                 Carrito
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {cart.totalCount}
+                </span>
               </button>
               <button
                 className="m-2 btn btn-secondary text-white"

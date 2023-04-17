@@ -1,11 +1,9 @@
-import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { BurgerCard } from "../components/BurgerCard";
 
-export const Index = ({ logged }) => {
+export const Index = ({ logged, user, cart }) => {
   return (
     <>
-      {logged && <Navigate to="/home" />}
-      <h1>Soy el index</h1>
+      <BurgerCard cart={cart} />
     </>
   );
 };

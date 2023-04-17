@@ -34,7 +34,7 @@ export const Login = ({ logged }) => {
 
   return (
     <>
-      {logged && <Navigate to="/home" />}
+      {logged && <Navigate to="/" />}
       <form className="m-4" onSubmit={handleSubmit}>
         <label>Email</label>
         <input type="email" placeholder="Enter email" name="email" />

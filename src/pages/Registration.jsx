@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -41,7 +40,7 @@ export const Registration = ({ logged }) => {
 
   return (
     <>
-      {logged && <Navigate to="/home" />}
+      {logged && <Navigate to="/" />}
       <form className="m-4" onSubmit={handleSubmit}>
         <label>First Name</label>
         <input type="text" name="firstName" />
