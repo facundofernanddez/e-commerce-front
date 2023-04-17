@@ -34,7 +34,7 @@ export const BurgerCard = (cart) => {
                   <p className="card-text">{burger.description}</p>
                   <button
                     href="#"
-                    className="btn btn-success"
+                    className="btn btn-outline-success opacity-75 fw-bold"
                     onClick={handleAddToCart}
                   >
                     Add to cart
@@ -42,7 +42,7 @@ export const BurgerCard = (cart) => {
                   {
                     <button
                       href="#"
-                      className="btn btn-danger"
+                      className="btn btn-outline-danger opacity-75 fw-bold mx-2"
                       onClick={handleAddToCart}
                     >
                       Remove from cart
