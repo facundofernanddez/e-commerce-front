@@ -1,18 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import { burgersList } from "../images/info-burgers/burgersList";
-import { addProductToCart } from "../reducers/cart/CartSlice";
+import {
+  addProductToCart,
+  removeProductFromCart,
+} from "../reducers/cart/CartSlice";
 
 export const BurgerCard = (cart) => {
   const dispatch = useDispatch();
-  const productsList = cart.productsList;
-  const totalCount = cart.totalCount;
-
-  const isInCart = (productId) => {
-    productsList.find((i) => i.id === productId);
-  };
+  const { productsList } = useSelector((state) => state.cart);
 
   const handleAddToCart = (productId) => {
-    const product = productsList.find((i) => i.id === productId);
+    const product = burgersList.find((i) => i.id === productId);
     dispatch(addProductToCart(product));
   };
 
@@ -26,8 +24,8 @@ export const BurgerCard = (cart) => {
       <div className="row">
         {burgersList.map((burger) => {
           return (
-            <div className="col-sm-12 col-md-6 col-lg-4">
-              <div className="card" key={burger.id}>
+            <div className="col-sm-12 col-md-6 col-lg-4" key={burger.id}>
+              <div className="card">
                 <img src={burger.img} className="card-img-top" alt="..." />
                 <div className="card-body">
                   <h5 className="card-title">{burger.name}</h5>
@@ -35,7 +33,7 @@ export const BurgerCard = (cart) => {
                   <button
                     href="#"
                     className="btn btn-outline-success opacity-75 fw-bold"
-                    onClick={handleAddToCart}
+                    onClick={handleAddToCart(burger.id)}
                   >
                     Add to cart
                   </button>
@@ -43,9 +41,9 @@ export const BurgerCard = (cart) => {
                     <button
                       href="#"
                       className="btn btn-outline-danger opacity-75 fw-bold mx-2"
-                      onClick={handleAddToCart}
+                      onClick={handleRemoveFromCart}
                     >
-                      Remove from cart
+                      Remove
                     </button>
                   }
                 </div>
