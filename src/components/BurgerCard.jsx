@@ -4,10 +4,15 @@ import {
   addProductToCart,
   removeProductFromCart,
 } from "../reducers/cart/CartSlice";
+import { useState } from "react";
 
 export const BurgerCard = (cart) => {
   const dispatch = useDispatch();
   const { productsList } = useSelector((state) => state.cart);
+  const [inCart, setInCart] = useState(false);
+
+  //TODO:
+  //handle state inCart for each product.
 
   const handleAddToCart = (productId) => {
     const product = burgersList.find((i) => i.id === productId);
@@ -31,21 +36,14 @@ export const BurgerCard = (cart) => {
                   <h5 className="card-title">{burger.name}</h5>
                   <p className="card-text">{burger.description}</p>
                   <button
-                    href="#"
+                    type="button"
                     className="btn btn-outline-success opacity-75 fw-bold"
-                    onClick={handleAddToCart(burger.id)}
+                    onClick={() => {
+                      handleAddToCart(burger.id);
+                    }}
                   >
                     Add to cart
                   </button>
-                  {
-                    <button
-                      href="#"
-                      className="btn btn-outline-danger opacity-75 fw-bold mx-2"
-                      onClick={handleRemoveFromCart}
-                    >
-                      Remove
-                    </button>
-                  }
                 </div>
               </div>
             </div>
