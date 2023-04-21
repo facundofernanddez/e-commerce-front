@@ -10,7 +10,6 @@ export const App = () => {
   const user = useSelector((state) => state.user);
   const logged = user.logged;
   const cart = useSelector((state) => state.cart);
-  const productsInCart = cart.productsList;
 
   return (
     <main className="container">
@@ -25,10 +24,7 @@ export const App = () => {
           path="/registration"
           element={<Registration logged={logged} />}
         />
-        <Route
-          path="/cart"
-          element={<Cart productsInCart={productsInCart} />}
-        />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </main>
   );
