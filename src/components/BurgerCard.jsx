@@ -9,14 +9,15 @@ import { useState } from "react";
 export const BurgerCard = (cart) => {
   const dispatch = useDispatch();
   const { productsList } = useSelector((state) => state.cart);
-  const [inCart, setInCart] = useState(false);
 
   //TODO:
-  //handle state inCart for each product.
+  //confict with isInCart property in handleAddToCart function.
 
   const handleAddToCart = (productId) => {
     const product = burgersList.find((i) => i.id === productId);
     dispatch(addProductToCart(product));
+    const productInCart = productsList.find((i) => i.id === productId);
+    productInCart.isInCart = true;
   };
 
   const handleRemoveFromCart = (productId) => {
@@ -43,6 +44,15 @@ export const BurgerCard = (cart) => {
                     }}
                   >
                     Add to cart
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-outline-danger opacity-75 fw-bold"
+                    onClick={() => {
+                      handleRemoveFromCart(burger.id);
+                    }}
+                  >
+                    Remove
                   </button>
                 </div>
               </div>

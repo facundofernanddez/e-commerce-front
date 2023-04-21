@@ -4,11 +4,13 @@ import { Routes, Route } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { Registration } from "./pages/Registration";
 import { useSelector } from "react-redux";
+import { Cart } from "./pages/Cart";
 
 export const App = () => {
   const user = useSelector((state) => state.user);
   const logged = user.logged;
   const cart = useSelector((state) => state.cart);
+  const productsInCart = cart.productsList;
 
   return (
     <main className="container">
@@ -22,6 +24,10 @@ export const App = () => {
         <Route
           path="/registration"
           element={<Registration logged={logged} />}
+        />
+        <Route
+          path="/cart"
+          element={<Cart productsInCart={productsInCart} />}
         />
       </Routes>
     </main>

@@ -36,15 +36,15 @@ export const Navigator = ({ logged, user, cart }) => {
               <span className="navbar-text text-white">
                 {user.firstName} {user.lastName}
               </span>
-              <button
+              <Link
                 className="m-2 btn btn-secondary text-white position-relative"
-                to="/logout"
+                to="/cart"
               >
                 Cart
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   {cart.totalCount}
                 </span>
-              </button>
+              </Link>
               <button
                 className="m-2 btn btn-secondary text-white"
                 to="/logout"

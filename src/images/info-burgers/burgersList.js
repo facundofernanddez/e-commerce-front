@@ -11,6 +11,7 @@ export const burgersList = [
     img: americana,
     description: "",
     price: 12,
+    isInCart: false,
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ export const burgersList = [
     img: chesseSimple,
     description: "",
     price: 9,
+    isInCart: false,
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export const burgersList = [
     img: complete,
     description: "",
     price: 15,
+    isInCart: false,
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ export const burgersList = [
     img: inglesa,
     description: "",
     price: 10,
+    isInCart: false,
   },
   {
     id: 5,
@@ -39,5 +43,6 @@ export const burgersList = [
     img: purple,
     description: "",
     price: 10,
+    isInCart: false,
   },
 ];
