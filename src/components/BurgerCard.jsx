@@ -11,7 +11,6 @@ export const BurgerCard = ({ logged }) => {
   const dispatch = useDispatch();
   const { productsList } = useSelector((state) => state.cart);
   const navigate = useNavigate();
-  const [productInCart, setProductInCart] = useState([]);
 
   //TODO:
   //Generar numero randoms para los id de las burgers.
@@ -19,8 +18,6 @@ export const BurgerCard = ({ logged }) => {
   const handleAddToCart = (productId) => {
     const product = burgersList.find((i) => i.id === productId);
     dispatch(addProductToCart(product));
-    const productInCart = productsList.find((i) => i.id === productId);
-    console.log(productInCart);
   };
 
   const handleRemoveFromCart = (productId) => {
