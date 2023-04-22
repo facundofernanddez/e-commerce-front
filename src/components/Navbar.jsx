@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { unsetUser } from "../reducers/user/UserSlice";
 import { Link } from "react-router-dom";
+import logo from "../images/logo.png";
 
 export const Navigator = ({ logged, user, cart }) => {
   const dispatch = useDispatch();
@@ -15,7 +16,11 @@ export const Navigator = ({ logged, user, cart }) => {
         <div className="container-fluid">
           <li className="nav-item">
             <Link className="m-2 text-white" to="/">
-              Home
+              <img
+                src={logo}
+                alt="logo"
+                style={{ width: "150px", height: "150px" }}
+              />
             </Link>
           </li>
           {!logged && (
