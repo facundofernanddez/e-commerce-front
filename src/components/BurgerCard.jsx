@@ -12,23 +12,9 @@ export const BurgerCard = ({ logged }) => {
   const { productsList } = useSelector((state) => state.cart);
   const navigate = useNavigate();
 
-  //TODO:
-  //Generar numero randoms para los id de las burgers.
-
   const handleAddToCart = (productId) => {
     const product = burgersList.find((i) => i.id === productId);
     dispatch(addProductToCart(product));
-  };
-
-  const handleRemoveFromCart = (productId) => {
-    const product = productsList.find((i) => i.id === productId);
-    dispatch(removeProductFromCart(product));
-  };
-
-  const isInCart = (productId) => {
-    if (productsList.find((i) => i.id === productId)) {
-      return true;
-    }
   };
 
   return (
@@ -36,12 +22,15 @@ export const BurgerCard = ({ logged }) => {
       <div className="row">
         {burgersList.map((burger, index) => {
           return (
-            <div className="col-sm-12 col-md-6 col-lg-4" key={index}>
+            <div className="col-sm-12 col-md-6 col-lg-4 my-2" key={index}>
               <div className="card">
                 <img src={burger.img} className="card-img-top" alt="..." />
                 <div className="card-body">
                   <h5 className="card-title">{burger.name}</h5>
-                  <p className="card-text">{burger.description}</p>
+                  <p className="card-text text-secondary">
+                    {burger.description}
+                  </p>
+                  <p className="card-text fw-bold">Price: ${burger.price}</p>
                   <button
                     type="button"
                     className="btn btn-outline-success opacity-75 fw-bold"
@@ -50,17 +39,6 @@ export const BurgerCard = ({ logged }) => {
                     }}
                   >
                     Add to cart
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-outline-danger opacity-75 fw-bold"
-                    onClick={() => {
-                      isInCart(burger.id)
-                        ? handleRemoveFromCart(burger.id)
-                        : console.log("producto no esta en el carrito");
-                    }}
-                  >
-                    Remove
                   </button>
                 </div>
               </div>

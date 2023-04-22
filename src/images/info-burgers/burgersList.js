@@ -9,35 +9,39 @@ export const burgersList = [
     id: 1,
     name: "American",
     img: americana,
-    description: "",
+    description:
+      "Homemade mayonnaise, roast beef 120g, lettuce, tomato, tybo cheese, cooked ham, grilled egg + chips McCain",
     price: 12,
   },
   {
     id: 2,
     name: "Chesse Simple",
     img: chesseSimple,
-    description: "",
+    description: "roast beef 120g, cheddar cheese x2 + chips McCain",
     price: 9,
   },
   {
     id: 3,
     name: "Complete",
     img: complete,
-    description: "",
+    description:
+      "Homemade mayonnaise, roast beef 120g x3, tybo cheese x1, cheddar cheese x4, golden bacon, french fries, grilled egg + chips McCain",
     price: 15,
   },
   {
     id: 4,
     name: "British",
     img: inglesa,
-    description: "",
+    description:
+      "Homemade mayonnaise, roast beef 120g, lettuce, tomato, cheddar cheese x2, golden bacon + chips McCain",
     price: 10,
   },
   {
     id: 5,
     name: "Purple",
     img: purple,
-    description: "",
+    description:
+      "Homemade mayonnaise, roast beef 130g, lettuce, tomato, cheddar cheese x4, golden bacon, purple onion + chips McCain",
     price: 10,
   },
 ];

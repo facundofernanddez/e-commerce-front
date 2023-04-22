@@ -11,7 +11,7 @@ export const Navigator = ({ logged, user, cart }) => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-dark rounded mt-1">
+      <nav className="navbar navbar-expand-lg bg-black border border-3 border-white rounded my-2">
         <div className="container-fluid">
           <li className="nav-item">
             <Link className="m-2 text-white" to="/">

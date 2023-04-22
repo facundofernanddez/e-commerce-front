@@ -6,6 +6,9 @@ import { Registration } from "./pages/Registration";
 import { useSelector } from "react-redux";
 import { Cart } from "./pages/Cart";
 
+//Style
+import "./styles/app.css";
+
 export const App = () => {
   const user = useSelector((state) => state.user);
   const logged = user.logged;
