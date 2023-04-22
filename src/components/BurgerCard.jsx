@@ -22,8 +22,8 @@ export const BurgerCard = ({ logged }) => {
       <div className="row">
         {burgersList.map((burger, index) => {
           return (
-            <div className="col-sm-12 col-md-6 col-lg-4 my-2" key={index}>
-              <div className="card">
+            <div className="col-sm-12 col-md-6 col-lg-4 my-2 " key={index}>
+              <div className="card border border-3">
                 <img src={burger.img} className="card-img-top" alt="..." />
                 <div className="card-body">
                   <h5 className="card-title">{burger.name}</h5>
