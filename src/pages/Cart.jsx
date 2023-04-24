@@ -5,13 +5,16 @@ export const Cart = () => {
   const { productsList } = useSelector((state) => state.cart);
   const [totalPrice, setTotalPrice] = useState(0);
 
+  const sumTotalPrice = productsList.reduce((value, currentValue) => {
+    currentValue = productsList.map((product) => product.price);
+    value + currentValue, totalPrice;
+    setTotalPrice(value);
+  });
+
   return (
     <>
       <ul className="list-group list-group-flush rounded ">
         {productsList.map((product) => {
-          useEffect(() => {
-            setTotalPrice(totalPrice + product.price);
-          }, [productsList]);
           return (
             <>
               <li className="list-group-item">
