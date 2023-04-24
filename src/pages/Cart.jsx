@@ -1,19 +1,27 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
 export const Cart = () => {
-  const cart = useSelector((state) => state.cart);
-  const productsInCart = cart.productsList;
+  const { productsList } = useSelector((state) => state.cart);
+  const [totalPrice, setTotalPrice] = useState(0);
+
   return (
-    <ul className="list-group list-group-flush">
-      {productsInCart.map((product) => {
-        <>
-          <li className="list-group-item">{product.name}</li>
-          {/* <li className="list-group-item">A second item</li>
-          <li className="list-group-item">A third item</li>
-          <li className="list-group-item">A fourth item</li>
-          <li className="list-group-item">And a fifth one</li> */}
-        </>;
-      })}
-    </ul>
+    <>
+      <ul className="list-group list-group-flush">
+        {productsList.map((product) => {
+          setTotalPrice((product.price += totalPrice));
+          return (
+            <>
+              <li className="list-group-item">
+                Nombre: <b>{product.name}</b> Precio: <b>{product.price}</b>
+              </li>
+            </>
+          );
+        })}
+      </ul>
+      <p className="text-end fs-3 text-white border border-3">
+        Total: ${totalPrice}
+      </p>
+    </>
   );
 };
