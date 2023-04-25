@@ -7,7 +7,6 @@ export const Cart = () => {
 
   useEffect(()=>{
     setTotalPrice(productsList.map(product => product.price))
-    console.log(totalPrice)
   },[productsList])
 
 
