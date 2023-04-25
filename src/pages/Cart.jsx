@@ -5,9 +5,11 @@ export const Cart = () => {
   const { productsList } = useSelector((state) => state.cart);
   const [totalPrice, setTotalPrice] = useState([]);
 
-  // setTotalPrice(productsList)
- 
-  console.log(totalPrice)
+  useEffect(()=>{
+    setTotalPrice(productsList.map(product => product.price))
+    console.log(totalPrice)
+  },[productsList])
+
 
   return (
     <>
