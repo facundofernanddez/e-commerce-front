@@ -3,13 +3,11 @@ import { useSelector } from "react-redux";
 
 export const Cart = () => {
   const { productsList } = useSelector((state) => state.cart);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState([]);
 
-  const sumTotalPrice = productsList.reduce((value, currentValue) => {
-    currentValue = productsList.map((product) => product.price);
-    value + currentValue, totalPrice;
-    setTotalPrice(value);
-  });
+  // setTotalPrice(productsList)
+ 
+  console.log(totalPrice)
 
   return (
     <>
@@ -40,7 +38,7 @@ export const Cart = () => {
           );
         })}
       </ul>
-      <p className="text-end fs-3 text-white ">Total: ${totalPrice}</p>
+      <p className="text-end fs-3 text-white ">Total: $</p>
     </>
   );
 };

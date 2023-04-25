@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { setUser } from "../reducers/user/UserSlice";
 
 export const Login = ({ logged }) => {
@@ -36,18 +36,18 @@ export const Login = ({ logged }) => {
     <>
       {logged && <Navigate to="/" />}
       <form className="m-4" onSubmit={handleSubmit}>
-        <label>Email</label>
-        <input type="email" placeholder="Enter email" name="email" />
+        <label className="form-label text-white">Email</label>
+        <input type="email" placeholder="hola@hola.com" name="email" className="form-control mb-3"/>
 
-        <label>Password</label>
-        <input type="password" placeholder="Password" name="password" />
+        <label className="form-label text-white">Password</label>
+        <input type="password" name="password" className="form-control mb-3"/>
 
-        <button className="mt-2" variant="success" type="submit">
+        <button className="btn btn-success mt-2" type="submit">
           Login
         </button>
 
-        <button className="mt-2 mx-2" variant="primary">
-          Register
+        <button className="btn btn-primary mt-2 mx-2" variant="primary">
+          <Link to="/registration" className="text-white">Register</Link>
         </button>
       </form>
     </>

@@ -1,13 +1,15 @@
 import { useDispatch } from "react-redux";
 import { unsetUser } from "../reducers/user/UserSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../images/logo.png";
 
 export const Navigator = ({ logged, user, cart }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const handleLogout = () => {
     dispatch(unsetUser());
+    navigate("/")
   };
 
   return (

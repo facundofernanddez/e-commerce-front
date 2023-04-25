@@ -42,19 +42,19 @@ export const Registration = ({ logged }) => {
     <>
       {logged && <Navigate to="/" />}
       <form className="m-4" onSubmit={handleSubmit}>
-        <label>First Name</label>
-        <input type="text" name="firstName" />
+        <label className="form-label text-white">First Name</label>
+        <input type="text" name="firstName" className="form-control mb-3" placeholder="Pedro"/>
 
-        <label>Last Name</label>
-        <input type="text" name="lastName" />
+        <label className="form-label text-white">Last Name</label>
+        <input type="text" name="lastName" placeholder="Rodriguez" className="form-control mb-3"/>
 
-        <label>Email</label>
-        <input type="email" placeholder="Enter email" name="email" />
+        <label className="form-label text-white">Email</label>
+        <input type="email" placeholder="hola@hola.com" name="email" className="form-control mb-3"/>
 
-        <label>Password</label>
-        <input type="password" placeholder="Password" name="password" />
+        <label className="form-label text-white">Password</label>
+        <input type="password" name="password" className="form-control mb-3"/>
 
-        <button type="submit">Register</button>
+        <button className="btn btn-success" type="submit">Register</button>
       </form>
     </>
   );
