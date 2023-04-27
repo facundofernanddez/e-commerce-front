@@ -6,7 +6,9 @@ export const Cart = () => {
   const [totalPrice, setTotalPrice] = useState([]);
 
   useEffect(()=>{
-    setTotalPrice(productsList.map(product => product.price))
+    const priceList = productsList.map(product => product.price)
+
+    setTotalPrice(priceList.reducer((totalPrice, currentValue)=> value + currentValue));
   },[productsList])
 
 
