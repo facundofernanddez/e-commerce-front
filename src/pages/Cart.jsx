@@ -8,7 +8,9 @@ export const Cart = () => {
   useEffect(()=>{
     const priceList = productsList.map(product => product.price)
 
-    setTotalPrice(priceList.reducer((totalPrice, currentValue)=> value + currentValue));
+    const totalValue = priceList.reducer((totalPrice, currentValue)=> value + currentValue)
+
+    setTotalPrice(totalValue);
   },[productsList])
 
 
