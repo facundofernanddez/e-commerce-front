@@ -8,9 +8,10 @@ export const Cart = () => {
   useEffect(()=>{
     const priceList = productsList.map(product => product.price)
 
-    const totalValue = priceList.reducer((totalPrice, currentValue)=> value + currentValue)
+    const sumAllPrices = priceList.reduce((accumulator, currentValue)=> accumulator + currentValue, 0)
 
-    setTotalPrice(totalValue);
+
+    setTotalPrice(sumAllPrices);
   },[productsList])
 
 
@@ -43,7 +44,7 @@ export const Cart = () => {
           );
         })}
       </ul>
-      <p className="text-end fs-3 text-white ">Total: $</p>
+      <p className="text-end fs-3 text-white ">Total: ${totalPrice}</p>
     </>
   );
 };
