@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
+import { Modal, ModalBody, ModalFooter, ModalHeader } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 export const Cart = () => {
   const { productsList } = useSelector((state) => state.cart);
   const [totalPrice, setTotalPrice] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(()=>{
     const priceList = productsList.map(product => product.price)
 
     const sumAllPrices = priceList.reduce((accumulator, currentValue)=> accumulator + currentValue, 0)
-
-
     setTotalPrice(sumAllPrices);
   },[productsList])
+
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+  
 
 
   return (
@@ -44,8 +48,17 @@ export const Cart = () => {
           );
         })}
       <p className="text-end fs-3 text-white ">Total: ${totalPrice}</p>
-      <button className="btn btn-success fw-bold border border-2">Comprar</button>
+      <button className="btn btn-success fw-bold border border-2" onClick={handleShowModal}>Comprar</button>
       </ul>
+
+      {/* Modal */}
+
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <ModalHeader >¡Gracias por tu compra!</ModalHeader>
+        <ModalFooter>
+          <button className="btn btn-secondary" onClick={handleCloseModal}>Cerrar</button>
+        </ModalFooter>
+      </Modal>
     
     </>
   );
