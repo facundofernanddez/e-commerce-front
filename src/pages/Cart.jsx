@@ -43,8 +43,10 @@ export const Cart = () => {
             </>
           );
         })}
-      </ul>
       <p className="text-end fs-3 text-white ">Total: ${totalPrice}</p>
+      <button className="btn btn-success fw-bold border border-2">Comprar</button>
+      </ul>
+    
     </>
   );
 };
