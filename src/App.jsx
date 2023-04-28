@@ -15,7 +15,7 @@ export const App = () => {
   const cart = useSelector((state) => state.cart);
 
   return (
-    <main className="container">
+    <div className="container">
       <Navigator logged={logged} user={user} cart={cart} />
       <Routes>
         <Route
@@ -27,8 +27,8 @@ export const App = () => {
           path="/registration"
           element={<Registration logged={logged} />}
         />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart logged={logged} />} />
       </Routes>
-    </main>
+    </div>
   );
 };
