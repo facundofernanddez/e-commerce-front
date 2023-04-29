@@ -35,7 +35,9 @@ export const Cart = ({ logged }) => {
   };
 
   const handleRemoveFromCart = (productId) => {
-    console.log(productId);
+    const product = productsList.find((product) => product.id === productId);
+    // dispatch(removeProductFromCart(product));
+    console.log(product);
   };
 
   return (
@@ -64,7 +66,7 @@ export const Cart = ({ logged }) => {
                     <button
                       type="button"
                       className="btn-close"
-                      onClick={handleRemoveFromCart(index)}
+                      onClick={() => handleRemoveFromCart(product.id)}
                     ></button>
                   </div>
                 </div>
