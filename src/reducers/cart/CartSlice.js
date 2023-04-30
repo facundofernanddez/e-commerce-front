@@ -16,17 +16,21 @@ export const CartSlice = createSlice({
     removeProductFromCart: (state, action) => {
       const productId = action.payload;
       state.totalCount -= 1;
-      state.productsList = state.productsList.filter((product) => {
-        product.id !== productId;
-      });
+      state.productsList = state.productsList
+        .map((product) => (product.id !== productId ? product : null))
+        .filter((product) => product);
     },
-    removeAllProductsFromCart: (state) =>{
+    removeAllProductsFromCart: (state) => {
       state.totalCount = 0;
       state.productsList = [];
-    }
+    },
   },
 });
 
-export const { addProductToCart, removeProductFromCart, removeAllProductsFromCart } = CartSlice.actions;
+export const {
+  addProductToCart,
+  removeProductFromCart,
+  removeAllProductsFromCart,
+} = CartSlice.actions;
 
 export default CartSlice.reducer;

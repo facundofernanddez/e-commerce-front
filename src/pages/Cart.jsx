@@ -36,7 +36,7 @@ export const Cart = ({ logged }) => {
 
   const handleRemoveFromCart = (productId) => {
     // const product = productsList.find((product) => product.id === productId);
-    // dispatch(removeProductFromCart(productId));
+    dispatch(removeProductFromCart(productId));
     console.log(productId);
   };
 
@@ -46,10 +46,10 @@ export const Cart = ({ logged }) => {
       <ul className="list-group list-group-flush rounded ">
         {productsList.map((product, index) => {
           return (
-            <li className="list-group-item" key={index}>
+            <li className="list-group-item " key={index}>
               <div className="card mb-3" style={{ maxWidth: "300px" }}>
                 <div className="row g-0 align-items-center">
-                  <div className="col-md-4">
+                  <div className="col-sm-4 ">
                     <img
                       src={product.img}
                       className="img-fluid rounded-start"
