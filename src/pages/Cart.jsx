@@ -35,7 +35,6 @@ export const Cart = ({ logged }) => {
   };
 
   const handleRemoveFromCart = (productId) => {
-    // const product = productsList.find((product) => product.id === productId);
     dispatch(removeProductFromCart(productId));
     console.log(productId);
   };
