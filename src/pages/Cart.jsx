@@ -36,7 +36,6 @@ export const Cart = ({ logged }) => {
 
   const handleRemoveFromCart = (productId) => {
     dispatch(removeProductFromCart(productId));
-    console.log(productId);
   };
 
   return (
