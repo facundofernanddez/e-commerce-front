@@ -1,15 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { burgersList } from "../images/info-burgers/burgersList";
-import {
-  addProductToCart,
-  removeProductFromCart,
-} from "../reducers/cart/CartSlice";
+import { addProductToCart } from "../reducers/cart/CartSlice";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 export const BurgerCard = ({ logged }) => {
   const dispatch = useDispatch();
-  const { productsList } = useSelector((state) => state.cart);
   const navigate = useNavigate();
 
   const handleAddToCart = (productId) => {
