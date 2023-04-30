@@ -14,7 +14,7 @@ export const Login = ({ logged }) => {
     const password = e.target.password.value;
 
     axios
-      .post("http://localhost:8080/login", {
+      .post("https://e-commerce-back-production-82af.up.railway.app/login", {
         email,
         password,
       })
@@ -37,17 +37,24 @@ export const Login = ({ logged }) => {
       {logged && <Navigate to="/" />}
       <form className="m-4" onSubmit={handleSubmit}>
         <label className="form-label text-white">Email</label>
-        <input type="email" placeholder="hola@hola.com" name="email" className="form-control mb-3"/>
+        <input
+          type="email"
+          placeholder="hola@hola.com"
+          name="email"
+          className="form-control mb-3"
+        />
 
         <label className="form-label text-white">Password</label>
-        <input type="password" name="password" className="form-control mb-3"/>
+        <input type="password" name="password" className="form-control mb-3" />
 
         <button className="btn btn-success mt-2" type="submit">
           Login
         </button>
 
         <button className="btn btn-primary mt-2 mx-2" variant="primary">
-          <Link to="/registration" className="text-white">Register</Link>
+          <Link to="/registration" className="text-white">
+            Register
+          </Link>
         </button>
       </form>
     </>

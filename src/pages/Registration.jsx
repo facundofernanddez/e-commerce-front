@@ -16,12 +16,15 @@ export const Registration = ({ logged }) => {
     const lastName = e.target.lastName.value;
 
     axios
-      .post("http://localhost:8080/registration", {
-        firstName,
-        lastName,
-        email,
-        password,
-      })
+      .post(
+        "https://e-commerce-back-production-82af.up.railway.app/registration",
+        {
+          firstName,
+          lastName,
+          email,
+          password,
+        }
+      )
       .then((res) => {
         if (res.status === 200) {
           dispatch(
@@ -43,18 +46,35 @@ export const Registration = ({ logged }) => {
       {logged && <Navigate to="/" />}
       <form className="m-4" onSubmit={handleSubmit}>
         <label className="form-label text-white">First Name</label>
-        <input type="text" name="firstName" className="form-control mb-3" placeholder="Pedro"/>
+        <input
+          type="text"
+          name="firstName"
+          className="form-control mb-3"
+          placeholder="Pedro"
+        />
 
         <label className="form-label text-white">Last Name</label>
-        <input type="text" name="lastName" placeholder="Rodriguez" className="form-control mb-3"/>
+        <input
+          type="text"
+          name="lastName"
+          placeholder="Rodriguez"
+          className="form-control mb-3"
+        />
 
         <label className="form-label text-white">Email</label>
-        <input type="email" placeholder="hola@hola.com" name="email" className="form-control mb-3"/>
+        <input
+          type="email"
+          placeholder="hola@hola.com"
+          name="email"
+          className="form-control mb-3"
+        />
 
         <label className="form-label text-white">Password</label>
-        <input type="password" name="password" className="form-control mb-3"/>
+        <input type="password" name="password" className="form-control mb-3" />
 
-        <button className="btn btn-success" type="submit">Register</button>
+        <button className="btn btn-success" type="submit">
+          Register
+        </button>
       </form>
     </>
   );
